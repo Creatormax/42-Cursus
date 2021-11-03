@@ -6,20 +6,13 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:04:39 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 19:09:15 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:53:05 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char *str)
+int	ft_isprint(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] < 32 || str[i] > 127)
-			return (0);
-		i++;
-	}
+	if (c < 32 || c > 127)
+		return (0);
 	return (1);
 }

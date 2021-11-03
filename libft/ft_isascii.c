@@ -6,20 +6,13 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:01:51 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 19:09:19 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:49:04 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char *str)
+int	ft_isascii(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] < 0 || str[i] > 127)
-			return (0);
-		i++;
-	}
+	if (c < 0 || c > 127)
+		return (0);
 	return (1);
 }

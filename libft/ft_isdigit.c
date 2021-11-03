@@ -6,20 +6,13 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:53:09 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 19:09:17 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:53:10 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char *str)
+int	ft_isdigit(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
+	if (c < '0' || c > '9')
+		return (0);
 	return (1);
 }

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:55:35 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 20:45:07 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/03 20:59:36 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/03 21:02:30 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <stdlib.h>
+
+void    *ft_memmove(void *dest, const void *src, size_t n)
 {
-	if ((c < 'a' || c > 'z') && (c < 'A' || \
-	c > 'Z') && (c < '0' || c > '9'))
-		return (0);
-	return (1);
+    
 }

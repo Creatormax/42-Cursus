@@ -6,20 +6,13 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:43:05 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 19:09:21 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:44:30 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
-			return (0);
-		i++;
-	}
+	if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z'))
+		return (0);
 	return (1);
 }

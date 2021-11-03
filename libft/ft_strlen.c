@@ -6,13 +6,15 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:05:09 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 19:09:27 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:56:37 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
