@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:56:09 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 15:21:00 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/03 15:43:05 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/03 19:09:21 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define LIBFT;
-#ifdef LIBFT;
-
-char *ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_isalpha(char *str)
 {
-    char *lol;
-    char i;
+	int	i;
 
-    i = 0;
-    lol = (char *) malloc(3); 
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
+			return (0);
+		i++;
+	}
+	return (1);
 }
-
-#endif;
