@@ -6,11 +6,13 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 18:29:20 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/03 19:09:29 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/06 21:14:28 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+#include <stdlib.h>
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	i;
 
@@ -19,10 +21,5 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		return (0);
 	while (i < n - 1 && s1[i] == s2[i] && s1[i] && s2[i])
 		i++;
-	if (s1[i] - s2[i] > 0)
-		return (1);
-	else if (s1[i] - s2[i] < 0)
-		return (-1);
-	else
-		return (0);
+	return (s1[i] - s2[i]);
 }

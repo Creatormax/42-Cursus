@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 16:52:42 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/06 20:56:31 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/06 20:58:10 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/06 21:11:48 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *s);
+
+char	*ft_strrchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != c)
-		*s++;
-	if (*s == '\0')
+	size_t n;
+	
+	n = ft_strlen(s);
+	while (n > 0 && s[n] != c)
+		n--;
+	if (n == 0)
 		return (0);
 	return ((char*)s);
 }

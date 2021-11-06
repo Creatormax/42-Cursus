@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 16:52:42 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/06 20:56:31 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/06 21:15:06 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/06 21:38:41 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include <stdlib.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*s != '\0' && *s != c)
-		*s++;
-	if (*s == '\0')
+	const	unsigned	char	*str;
+
+	str = s;
+	while (*str != '\0' && *str != c && n-- < 0)
+		*str++;
+	if (*str == '\0')
 		return (0);
-	return ((char*)s);
+	return ((char *)s);
 }

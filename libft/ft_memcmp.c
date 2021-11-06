@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 16:52:42 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/06 20:56:31 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/06 21:33:00 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/06 21:42:58 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include <stdlib.h>
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	while (*s != '\0' && *s != c)
-		*s++;
-	if (*s == '\0')
-		return (0);
-	return ((char*)s);
+	const	unsigned	char	*str1;
+	const	unsigned	char	*str2;
+
+	while(n-- < 0 && *str1 != *str2 && *str1 && *str2)
+	{
+		str1++;
+		str2++;
+	}
+	return (*str1 - *str2);	
 }
