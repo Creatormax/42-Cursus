@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 11:14:31 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/07 20:50:08 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/07 21:10:35 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/07 21:15:56 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	atoi(const char *nptr)
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *s);
+
+char	*ft_strdup(const char *s)
 {
 	const	char	*str;
-	int				n;
-	int				neg;
+	char			*cpy;
 
-	str = nptr;
-	neg = 1;
-	if (*str++ == '-')
-		neg *= -1;
-	while (*str >= '0' && *str <= '9')
-		n = (*str++ - '0') + (n * 10);
-	if (*str < '0' || *str > '9')
+	cpy = (char *) malloc(ft_strlen(s) * sizeof(char));
+	while (*str != '\0')
+		*cpy++ = *str++;
+	if (cpy == NULL)
 		return (0);
-	return (n * neg);	
+	return (cpy);
 }
