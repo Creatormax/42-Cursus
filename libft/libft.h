@@ -6,14 +6,14 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:56:09 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/08 17:57:18 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/08 18:46:09 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef LIBFT
-#define LIBFT
+#ifndef LIBFT_H
+# define LIBFT_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 int		atoi(const char *nptr);
 int		ft_toupper(int c);
