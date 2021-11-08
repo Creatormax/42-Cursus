@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:56:09 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/08 18:46:09 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/08 19:35:49 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 
-int		atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:59:36 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/08 16:16:42 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/08 19:50:29 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    char	*d;
+	char	*d;
 	char	*s;
 	char	*endd;
 	char	*ends;
@@ -33,5 +33,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n-- > 0)
 			*endd-- = *ends--;
 	}
-	return (dest);  
+	return (dest);
 }
