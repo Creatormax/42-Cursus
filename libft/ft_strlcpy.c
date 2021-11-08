@@ -6,11 +6,11 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:03:47 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/06 16:55:34 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:32:19 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s);
 

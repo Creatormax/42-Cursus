@@ -6,19 +6,20 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 21:10:35 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/07 21:15:56 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:18:50 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s);
 
 char	*ft_strdup(const char *s)
 {
-	const	char	*str;
-	char			*cpy;
+	char	*str;
+	char	*cpy;
 
+	str = (char *)s;
 	cpy = (char *) malloc(ft_strlen(s) * sizeof(char));
 	while (*str != '\0')
 		*cpy++ = *str++;

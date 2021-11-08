@@ -6,9 +6,11 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 11:14:31 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/07 20:50:08 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:29:53 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	atoi(const char *nptr)
 {

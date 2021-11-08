@@ -6,15 +6,18 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:52:42 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/06 20:56:31 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:55:15 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != c)
-		*s++;
+	while (*s++ != '\0' && *s++ != c)
+	{
+	}
 	if (*s == '\0')
 		return (0);
-	return ((char*)s);
+	return ((char *)s);
 }
