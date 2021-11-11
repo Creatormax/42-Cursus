@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 20:50:51 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/11 13:33:34 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/11 14:00:01 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/11 14:29:05 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	void	*ptr;
+	char	*str;
+	size_t	l;
 
-	if (nmemb == 0 || size == 0 || nmemb * size > 2147483648)
+	if (!s1 || !set)
 		return (NULL);
-	ptr = (void *) malloc(nmemb * size * sizeof(void));
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	l = ft_strlen(s1);
+	while (l && ft_strchr(set, l))
+		l--;
+	str = ft_substr(s1, 0, l);
+	return (str);
 }
