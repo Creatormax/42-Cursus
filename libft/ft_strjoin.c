@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 13:44:05 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/11 13:58:48 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/12 12:45:17 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 		j++;
 	}
+	return (str);
 }

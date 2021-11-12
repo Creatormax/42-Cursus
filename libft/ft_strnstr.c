@@ -6,33 +6,33 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 21:45:21 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/09 10:56:45 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/12 15:55:13 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s);
-
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
+	size_t	j;
 	char	*b;
 	char	*l;
-	int		counter1;
 
-	b = (char *)big;
+	j = 0;
 	l = (char *)little;
-	counter1 = -1;
-	if (*l == '\0')
+	b = (char *)big;
+	if (!b || !l)
 		return (b);
-	while (*b++ != '\0' && len-- > 0)
+	while (*b != 0 && len--)
 	{
-		while (*b++ == *l++)
-			++counter1;
-		if (*l == '\0')
-			return (&b[counter1 - ft_strlen(little)]);
-		else
-			l = (char *)little;
+		while (b[j] == l[j] && b[j] && l[j] && j < len)
+			j++;
+		if (l[j] == 0)
+			return (b);
+		if (j != 0)
+			b--;
+		j = 0;
+		b++;
 	}
-	return (NULL);
+	return (0);
 }

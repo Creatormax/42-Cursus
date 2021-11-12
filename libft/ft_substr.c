@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 13:28:26 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/11 13:43:18 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:27:34 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
+	size_t	i;
+	size_t	j;
 
+	i = 0;
+	j = 0;
 	if (!s)
 		return (NULL);
-	str = (char *) malloc(len * sizeof(*s));
-	if (str == NULL)
+	str = (char *) malloc((len + 1) * sizeof(*s));
+	if (!str)
 		return (NULL);
-	while (start < len)
+	while (s[i])
 	{
-		str[start] = s[start];
-		start++;
+		if (start <= i && j < len)
+			 str[j++] = s[i];
+		i++;
 	}
-	str[start] = 0;
+	str[j] = 0;
 	return (str);
 }

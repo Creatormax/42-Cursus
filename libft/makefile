@@ -23,6 +23,10 @@ SRCS =	ft_isdigit.c \
 		ft_memmove.c \
 		ft_strdup.c \
 		ft_strrchr.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_substr.c \
+
 		
 OBJS = ${SRCS:.c=.o}
 
