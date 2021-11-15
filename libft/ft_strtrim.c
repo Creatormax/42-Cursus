@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 14:00:01 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/11 14:29:05 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/15 12:45:06 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;
 	l = ft_strlen(s1);
-	while (l && ft_strchr(set, l))
+	while (l && ft_strrchr(set, s1[l]))
 		l--;
-	str = ft_substr(s1, 0, l);
+	str = ft_substr(s1, 0, l + 1);
 	return (str);
 }
