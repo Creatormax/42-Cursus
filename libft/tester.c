@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:17:26 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/12 16:09:12 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/17 12:31:44 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,66 +28,91 @@ void	ft_print_result(char const *s)
 
 int		main(int argc, const char *argv[])
 {
-	char	str[] = "lorem ipsum dolor sit amet";
-	char	*strsub;
+	char	**tabstr;
+	int		i;
 	int		arg;
 
 	alarm(5);
 	if (argc == 1)
 		return (0);
-	else if ((arg = atoi(argv[1])) == 1)
+	i = 0;
+	if ((arg = atoi(argv[1])) == 1)
 	{
-		if (!(strsub = ft_substr(str, 0, 10)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
-	else if (arg == 2)
-	{
-		if (!(strsub = ft_substr(str, 7, 10)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
-	else if (arg == 3)
-	{
-		if (!(strsub = ft_substr(str, 7, 0)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
-	else if (arg == 4)
-	{
-		if (!(strsub = ft_substr(str, 0, 0)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
-	else if (arg == 5)
-	{
-		char *bullshit;
-		if (!(strsub = ft_substr(str, 400, 20)))
+		if (!(tabstr = ft_split("          ", ' ')))
 			ft_print_result("NULL");
 		else
 		{
-			bullshit = (char *)&strsub[30];
-			bullshit = "FULL BULLSHIT";
-			if (strsub)
-				ft_print_result(strsub);
-			else
-				ft_print_result("rip");
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
 		}
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-		(void)bullshit;
+	}
+	else if (arg == 2)
+	{
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 3)
+	{
+		if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 4)
+	{
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 5)
+	{
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 6)
+	{
+		if (!(tabstr = ft_split("", 'z')))
+			ft_print_result("NULL");
+		else
+			if (!tabstr[0])
+				ft_print_result("ok\n");
 	}
 	return (0);
 }
