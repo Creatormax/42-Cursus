@@ -1,56 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 17:53:13 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/17 21:44:45 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/17 22:27:32 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/17 22:42:39 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <unistd.h>
 
-unsigned int	digits(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	i;
-	int				nb;
+	unsigned int	max;
+	char			c;
 
-	i = 1;
+	i = 0;
+	max = ft_strlen(ft_itoa(n));
+	if (n > 2147483647 || n < -2147483648)
+		return ;
 	if (n < 0)
-		i = 2;
-	nb = n / 10;
-	while (nb != nb / 10)
 	{
-		nb /= 10;
+		write(fd, "-", 1);
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_itoa(int n)
-{
-	unsigned int	i;
-	char			*nbr;
-	int				nb;
-
-	i = digits(n);
-	nbr = (char *)malloc(sizeof(char) * i + 1);
-	if (!nbr)
-		return (NULL);
-	nb = n;
-	nbr[i] = '\0';
-	while (i-- > 0)
+	while (max > i++)
 	{
-		if (nb < 0)
-			nbr[i] = -(nb % 10) + '0';
-		else
-			nbr[i] = nb % 10 + '0';
-		nb /= 10;
+		c = (n % 10) + '0';
+		write(fd, &c, 1);
+		n /= 10;
 	}
-	if (n < 0)
-		nbr[0] = '-';
-	return (nbr);
 }
