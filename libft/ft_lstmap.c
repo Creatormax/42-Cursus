@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 22:21:56 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/19 11:05:43 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/19 12:09:04 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/19 12:17:12 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	i;
+	t_list	*aux;
 
-	i = 0;
-	while (s[i])
+	aux = lst;
+	ft_lstiter(aux, (void *)f);
+	if (!aux)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		ft_lstdelone(lst, del);
+		return (NULL);
 	}
-	write(fd, "\n", 1);
+	return (aux);
 }
