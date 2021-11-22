@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:08:03 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/18 23:30:41 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/22 10:24:37 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = dest;
 	s = src;
+	if (!dest && !src)
+		return (NULL);
 	while (n-- > 0)
 		*d++ = *s++;
 	return (dest);

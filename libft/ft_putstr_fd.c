@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 00:21:22 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/19 11:05:51 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/22 10:58:25 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	unsigned int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (i < ft_strlen(s))
 	{
 		write(fd, &s[i], 1);

@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 11:14:31 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/17 19:55:48 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/22 10:54:58 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	ft_atoi(const char *nptr)
 	}
 	while (*str >= '0' && *str <= '9')
 		n = (*str++ - '0') + (n * 10);
-	return (n * neg);
+	return ((int)n * neg);
 }
