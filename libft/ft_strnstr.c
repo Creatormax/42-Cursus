@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 21:45:21 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/22 10:47:53 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/23 12:36:08 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	char	*b;
 	char	*l;
 
-	if (!big || !little)
-		return (NULL);
 	j = 0;
 	l = (char *)little;
 	b = (char *)big;
-	if (!b || !l || len == 0)
+	if (!b || !l)
 		return (b);
+	else if (len == 0)
+		return (NULL);
 	while (*b != 0 && len--)
 	{
 		while (b[j] == l[j] && b[j] && l[j] && j < len)

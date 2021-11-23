@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:35 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/22 11:17:18 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/23 12:31:27 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) == 0 || ft_isdigit(c) == 0)
+	if (c < '0' || (c > '9' && c < 'A') || (c > 'Z' && c < 'a') || c > 'z')
 		return (0);
 	return (1);
 }
