@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 12:09:04 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/19 12:17:12 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/19 11:52:51 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/26 17:14:13 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstclear_bonus(t_list **lst, void (*del)(void *))
 {
 	t_list	*aux;
-
-	aux = lst;
-	ft_lstiter(aux, (void *)f);
-	if (!aux)
+	
+	while (*lst)
 	{
-		ft_lstdelone(lst, del);
-		return (NULL);
+		aux = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = aux;
 	}
-	return (aux);
 }

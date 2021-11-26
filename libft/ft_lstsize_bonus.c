@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 11:44:52 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/19 11:51:38 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/19 11:21:37 by hmorales          #+#    #+#             */
+/*   Updated: 2021/11/26 17:14:38 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	ft_lstsize_bonus(t_list *lst)
 {
-	if (!lst)
-		return ;
-	if (del)
-		del(lst->content);
-	free(lst);
+	int	size;
+
+	size = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }

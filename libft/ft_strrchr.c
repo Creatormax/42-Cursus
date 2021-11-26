@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:58:10 by hmorales          #+#    #+#             */
-/*   Updated: 2021/11/11 11:08:14 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:59:08 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		return (NULL);
 	while (*str)
 		str++;
-	while (*str != c)
+	while (*str != (unsigned char)c)
 		str--;
 	return (str);
 }
