@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   updater.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 21:33:39 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/02 09:30:25 by hmorales         ###   ########.fr       */
+/*   Created: 2021/12/02 10:24:53 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/02 10:30:09 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "libft.h"
 
-int	ft_printf(const char *c, ...)
+void	updater(char *str)
 {
+	while (*str == '%')
+		str++;
+	while (*str == 32)
+		str++;
+	while (*str == "c" || *str == "s" || *str == "p" || \
+	*str == "d" || *str == "i" || *str == "u" || \
+	*str == "x" || *str == "X" || *str == '%')
+		str++;
 }

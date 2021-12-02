@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   comparador.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 21:33:39 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/02 09:30:25 by hmorales         ###   ########.fr       */
+/*   Created: 2021/12/02 10:00:02 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/02 10:21:49 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include "libft.h"
+#include <stdio.h>
 
-int	ft_printf(const char *c, ...)
+int	main(void)
 {
+	printf("lol haber % 	s i esto funciona");
 }
