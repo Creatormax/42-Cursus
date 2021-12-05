@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analizer.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 09:27:25 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/02 10:07:45 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/03 16:05:09 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/05 20:25:33 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include <stdio.h>
 
-char	analizer(const char *c)
+size_t	ft_strlen(const char *str)
 {
-	char			*s;
-	unsigned int	i;
+	size_t	i;
 
-	s = (char *)c;
-	if (!c || !(*s))
-		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != '%')
+	while (str[i] != '\0')
 		i++;
-	while (s[i] == 32)
-		i++;
-	if (s[i + 1] == "c" || s[i + 1] == "s" || s[i + 1] == "p" || \
-	s[i + 1] == "d" || s[i + 1] == "i" || s[i + 1] == "u" || \
-	s[i + 1] == "x" || s[i + 1] == "X" || s[i + 1] == '%')
-		return (s[i + 1]);
-	return (NULL);
+	return (i);
 }

@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   counter.c                                          :+:      :+:    :+:   */
+/*   tester.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 10:05:15 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/02 10:22:31 by hmorales         ###   ########.fr       */
+/*   Created: 2021/12/05 19:23:48 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/05 20:57:19 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include <stdio.h>
 
-unsigned int	counter(const char *c)
+int	ft_printf(const char *c, ...);
+
+int	main(void)
 {
-	unsigned int	i;
-	unsigned int	j;
+	char				aux;
+	unsigned int		aux1;
+	char				*aux2;
 
-	j = 0;
-	i = 0;
-	while (c[i])
-	{
-		if (c[i] == '%')
-		{
-			if (c[i + 1] == 32)
-			{
-				while (c[i + 1] == 32)
-					i++;
-			}
-			if (c[i + 1] == '%')
-				j --;
-			j++;
-		}
-		i++;
-	}
-	return (j);
+	aux = 's';
+	aux1 = 789;
+	aux2 = ", pos si que funciona jeje";
+	printf("lol haber %ci esto fucniona %x\n", aux);
+	ft_printf("lol haber %ci esto fucniona %x", aux);
 }

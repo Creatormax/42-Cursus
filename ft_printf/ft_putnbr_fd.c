@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 21:33:39 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/05 20:20:59 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/17 22:27:32 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/05 20:23:10 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-void	curator(const char *c, int i, va_list (ap));
 void	ft_putchar_fd(char c, int fd);
 
-int	ft_printf(const char *c, ...)
+void	ft_putnbr_fd(int n, int fd)
 {
-	va_list	ap;
-	int		i;
-
-	i = 0;
-	va_start(ap, c);
-	while (c[i] != '\0')
+	if (n <= 2147483647 || n > -2147483648)
 	{
-		if (c[i] == '%')
+		if (n == -2147483648)
 		{
-			curator(c, i, ap);
-			i += 2;
+			ft_putchar_fd('-', fd);
+			ft_putchar_fd('2', fd);
+			ft_putnbr_fd(147483648, fd);
+		}
+		else if (n < 0)
+		{
+			n = -n;
+			ft_putchar_fd('-', fd);
+			ft_putnbr_fd(n, fd);
+		}
+		else if (n >= 10)
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putchar_fd(n % 10 + '0', fd);
 		}
 		else
 		{
-			ft_putchar_fd(c[i], 1);
-			i++;
-		}	
+			ft_putchar_fd(n % 10 + '0', fd);
+		}
 	}
-	va_end(ap);
-	return (i);
 }

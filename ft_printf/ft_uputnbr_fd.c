@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_uputnbr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 21:33:39 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/05 20:20:59 by hmorales         ###   ########.fr       */
+/*   Created: 2021/12/05 20:35:11 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/05 20:36:28 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-void	curator(const char *c, int i, va_list (ap));
 void	ft_putchar_fd(char c, int fd);
 
-int	ft_printf(const char *c, ...)
+void	ft_uputnbr_fd(unsigned int n, int fd)
 {
-	va_list	ap;
-	int		i;
-
-	i = 0;
-	va_start(ap, c);
-	while (c[i] != '\0')
+	if (n <= 2147483647 || n > -2147483648)
 	{
-		if (c[i] == '%')
+		if (n >= 10)
 		{
-			curator(c, i, ap);
-			i += 2;
+			ft_uputnbr_fd(n / 10, fd);
+			ft_putchar_fd(n % 10 + '0', fd);
 		}
 		else
 		{
-			ft_putchar_fd(c[i], 1);
-			i++;
-		}	
+			ft_putchar_fd(n % 10 + '0', fd);
+		}
 	}
-	va_end(ap);
-	return (i);
 }

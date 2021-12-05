@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   updater.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 10:24:53 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/02 10:30:09 by hmorales         ###   ########.fr       */
+/*   Created: 2021/11/17 22:06:31 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/05 20:23:16 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libftprintf.h"
 
-void	updater(char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	while (*str == '%')
-		str++;
-	while (*str == 32)
-		str++;
-	while (*str == "c" || *str == "s" || *str == "p" || \
-	*str == "d" || *str == "i" || *str == "u" || \
-	*str == "x" || *str == "X" || *str == '%')
-		str++;
+	write(fd, &c, 1);
 }
