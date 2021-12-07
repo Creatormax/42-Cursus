@@ -6,11 +6,11 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:05:09 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/05 20:25:33 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/12/07 00:55:08 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libftprintf.h"
 
 size_t	ft_strlen(const char *str)
 {

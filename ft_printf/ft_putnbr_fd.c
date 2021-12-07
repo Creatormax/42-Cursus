@@ -6,11 +6,11 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:27:32 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/05 20:23:10 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/12/07 00:54:40 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar_fd(char c, int fd);
+#include "libftprintf.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

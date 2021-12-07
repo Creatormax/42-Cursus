@@ -6,14 +6,11 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 21:33:39 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/05 20:20:59 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/12/07 00:54:08 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-void	curator(const char *c, int i, va_list (ap));
-void	ft_putchar_fd(char c, int fd);
 
 int	ft_printf(const char *c, ...)
 {
@@ -26,7 +23,7 @@ int	ft_printf(const char *c, ...)
 	{
 		if (c[i] == '%')
 		{
-			curator(c, i, ap);
+			ft_curator(c, i, ap);
 			i += 2;
 		}
 		else

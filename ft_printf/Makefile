@@ -6,14 +6,20 @@
 #    By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 21:08:54 by hmorales          #+#    #+#              #
-#    Updated: 2021/12/05 19:22:44 by hmorales         ###   ########.fr        #
+#    Updated: 2021/12/07 00:57:43 by hmorales         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= 	libftprintf.a
 
-SRCS	= 	ft_printf.c \
+SRCS	= 	ft_curator.c \
+			ft_printf.c \
 			ft_putchar_fd.c \
+			ft_putnbr_base.c \
+			ft_putnbr_fd.c \
+			ft_putstr_fd.c \
+			ft_strlen.c \
+			ft_uputnbr_fd.c \
 
 OBJS	= 	${SRCS:.c=.o}
 
