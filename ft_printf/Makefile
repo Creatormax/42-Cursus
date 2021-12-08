@@ -6,7 +6,7 @@
 #    By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 21:08:54 by hmorales          #+#    #+#              #
-#    Updated: 2021/12/07 00:57:43 by hmorales         ###   ########.fr        #
+#    Updated: 2021/12/08 19:27:53 by hmorales         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS	= 	ft_curator.c \
 			ft_putstr_fd.c \
 			ft_strlen.c \
 			ft_uputnbr_fd.c \
+			ft_intlen.c \
+			ft_hexpoint.c \
 
 OBJS	= 	${SRCS:.c=.o}
 

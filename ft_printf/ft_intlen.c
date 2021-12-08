@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uputnbr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 20:35:11 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/08 19:18:51 by hmorales         ###   ########.fr       */
+/*   Created: 2021/12/08 18:31:11 by hmorales          #+#    #+#             */
+/*   Updated: 2021/12/08 19:19:51 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_uputnbr_fd(unsigned int n, int fd, int total)
+int	ft_intlen(unsigned long n, unsigned long baselen)
 {
-	if (n >= 10)
+	int	i;
+
+	i = 1;
+	while (n >= baselen)
 	{
-		total = ft_uputnbr_fd(n / 10, fd, total);
-		total = ft_putchar_fd(n % 10 + '0', fd, total);
+		n /= baselen;
+		i++;
 	}
-	else
-	{
-		total = ft_putchar_fd(n % 10 + '0', fd, total);
-	}
-	return (total);
+	return (i);
 }

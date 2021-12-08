@@ -6,36 +6,37 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:27:32 by hmorales          #+#    #+#             */
-/*   Updated: 2021/12/07 00:54:40 by hmorales         ###   ########.fr       */
+/*   Updated: 2021/12/08 16:41:01 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd, int total)
 {
 	if (n <= 2147483647 || n > -2147483648)
 	{
 		if (n == -2147483648)
 		{
-			ft_putchar_fd('-', fd);
-			ft_putchar_fd('2', fd);
-			ft_putnbr_fd(147483648, fd);
+			total = ft_putchar_fd('-', fd, total);
+			total = ft_putchar_fd('2', fd, total);
+			total = ft_putnbr_fd(147483648, fd, total);
 		}
 		else if (n < 0)
 		{
 			n = -n;
-			ft_putchar_fd('-', fd);
-			ft_putnbr_fd(n, fd);
+			total = ft_putchar_fd('-', fd, total);
+			total = ft_putnbr_fd(n, fd, total);
 		}
 		else if (n >= 10)
 		{
-			ft_putnbr_fd(n / 10, fd);
-			ft_putchar_fd(n % 10 + '0', fd);
+			total = ft_putnbr_fd(n / 10, fd, total);
+			total = ft_putchar_fd(n % 10 + '0', fd, total);
 		}
 		else
 		{
-			ft_putchar_fd(n % 10 + '0', fd);
+			total = ft_putchar_fd(n % 10 + '0', fd, total);
 		}
 	}
+	return (total);
 }
