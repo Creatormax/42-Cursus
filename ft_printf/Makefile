@@ -6,7 +6,7 @@
 #    By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 21:08:54 by hmorales          #+#    #+#              #
-#    Updated: 2021/12/08 19:27:53 by hmorales         ###   ########.fr        #
+#    Updated: 2021/12/17 13:39:35 by hmorales         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,4 +46,4 @@ all:	${NAME} ${OBJS}
 
 re:		fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
