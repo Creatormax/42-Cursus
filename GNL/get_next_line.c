@@ -6,19 +6,19 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:39:13 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/15 14:24:32 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/15 14:40:54 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*liberator(char *aux)
+static inline void	*liberator(char *aux)
 {
 	free (aux);
 	return (NULL);
 }
 
-int	buffer_checker(char *str, char **aux)
+static inline int	buffer_checker(char *str, char **aux)
 {
 	char	*lb;
 	char	aux2[BUFFER_SIZE + 1];
@@ -27,7 +27,8 @@ int	buffer_checker(char *str, char **aux)
 	lb = ft_strchr(str, '\n');
 	if (lb)
 	{
-		lb = '\0';
+		*lb = '\0';
+		ft_bzero(aux2, BUFFER_SIZE + 1);
 		ft_memcpy(aux2, lb + 1, ft_strlen(lb + 1));
 		aux3 = *aux;
 		*aux = ft_strjoin(aux3, str);

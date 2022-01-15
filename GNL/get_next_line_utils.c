@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:39:04 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/15 14:07:36 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/15 14:30:49 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *s, int n)
 {
-	unsigned long int	i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -22,7 +22,6 @@ void	ft_bzero(void *s, int n)
 		*(unsigned char *)(s + i) = '\0';
 		i++;
 	}	
-	return (s);
 }
 
 char	*ft_strchr(const char *s, int c)
