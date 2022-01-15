@@ -6,7 +6,7 @@
 #    By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 17:26:15 by hmorales          #+#    #+#              #
-#    Updated: 2021/11/27 21:11:54 by hmorales         ###   ########.fr        #
+#    Updated: 2022/01/15 18:48:18 by hmorales         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ SRCS =	ft_isdigit.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
+		ft_gnl.c \
+		ft_realloc.c \
 		
 
 BONUS = ft_lstnew_bonus.c \
