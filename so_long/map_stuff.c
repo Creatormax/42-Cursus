@@ -6,13 +6,13 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:27:07 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/15 20:24:33 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/17 15:33:03 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	dimensions(char *aux)
+int	dimensions_x(char *aux)
 {
 	int	i;
 
@@ -22,7 +22,14 @@ int	dimensions(char *aux)
 	return (i);
 }
 
-int	map_checker(char **matrix, int i, int j)
+void	error_msgr(char *str)
+{
+	write(1, "Error\n", 6);
+	write(1, str, dimensions_x(str));
+	exit (1);
+}
+
+void	map_checker(char **matrix, int i, int j)
 {
 	int	k;
 
@@ -30,51 +37,56 @@ int	map_checker(char **matrix, int i, int j)
 	while (k <= i)
 	{
 		if (matrix[0][k] != 1 || matrix[j][k] != 1)
-			return (1);// tengo que hacerme una funcion para los mensajes de errores
-	}// no esta rodeada de unos
+			error_msgr("This map has some holes in the walls");
+	}
 	k = 0;
 	while (k <= j)
 	{
 		if (matrix[k][0] != 1 || matrix[k][i] != 1)
-			return (1);//no esta rodeada de unos
+			error_msgr("This map has some holes in the walls");
 	}
 }
 
-int	map_checker2(char **matrix, int i, int j)
+void	map_checker2(char **matrix, int i, int j)
 {
 	int	k;
 	int	l;
-	int	err;
+	int	err[3];
 
 	k = 0;
 	l = 0;
-	err = 1;
+	ft_bzero(err, 3);
 	while (k <= j)
 	{
 		while (l <= i)
 		{
 			if (matrix[k][l] == 'E')
-				err = 0;//No hay salida
+				err[0] = 1;
 			if (matrix[k][l] == 'C')
-				err = 0;//No hay coleccionables
+				err[1] = 1;
 			if (matrix[k][l] == 'P')
-				err = 0;//No hay punto de entrada
+				err[2] = 1;
 		}
 	}
+	if (err[0] == 1)
+		error_msgr("There is no exit");
+	else if (err[1] == 1)
+		error_msgr("There are no collectables");
+	else if (err[2] == 1)
+		error_msgr("There is no starting point");
 }
 
-void	map_arranger(int map)
+char	**map_arranger(int map)
 {
 	char	**matrix;
 	char	*aux;
 	int		i;
 	int		j;
-	int		err;
 
 	j = 0;
-	i = dimensions(aux);
+	i = dimensions_x(aux);
 	if (i < 3)
-		return ;//mapa de dimensiones erroneas
+		error_msgr("The map is smaller than a 3x3");
 	aux = get_next_line(map);
 	if (aux[0] != 1)
 	matrix = ft_calloc(1, sizeof(char *) * i);
@@ -82,10 +94,12 @@ void	map_arranger(int map)
 	while (aux)
 	{
 		aux = get_next_line(map);
-		if (dimensions(aux) != i)
-			return ;//este mapa no es un rectangulo
+		if (dimensions_x(aux) != i)
+			error_msgr("This map is not a rectangle");
 		matrix = (char **) ft_realloc(matrix, sizeof(char *) * i * j);
 		matrix[j++] = aux;
 	}
-	err = map_checker(matrix, i, j);
+	map_checker(matrix, i, j);
+	map_checker2(matrix, i, j);
+	return (matrix);
 }

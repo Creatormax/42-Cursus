@@ -6,7 +6,7 @@
 #    By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 17:26:15 by hmorales          #+#    #+#              #
-#    Updated: 2022/01/15 18:48:18 by hmorales         ###   ########.fr        #
+#    Updated: 2022/01/17 17:43:49 by hmorales         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,15 +46,6 @@ SRCS =	ft_isdigit.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		ft_striteri.c \
-		ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
 		ft_gnl.c \
 		ft_realloc.c \
 		

@@ -6,32 +6,49 @@
 #    By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/15 16:09:33 by hmorales          #+#    #+#              #
-#    Updated: 2022/01/15 17:58:30 by hmorales         ###   ########.fr        #
+#    Updated: 2022/01/17 17:41:28 by hmorales         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= 	so_long.a
+NAME = so_long
 
-SRCS	= 	so_long.c \
+SRCS =	so_long.c \
 
-OBJS	= 	${SRCS:.c=.o}
+FLAGS = -Wall -Wextra -Werror
 
-CC		= 	gcc
-RM		= 	rm -f
+OBJS = $(SRCS:.c=.o)
 
-CFLAGS	= 	-Wall -Wextra -Werror
+LIBFT= ./libft/libft.a
 
-${NAME}: ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+MLX= ./minilibx/libmlx.a
+
+CC = gcc
+
+all: $(NAME)
+
+%.o: %.c
+	$(CC) $(FLAGS) -Imlx -c $< -o $@
+
+$(NAME): $(OBJS) $(INCL) $(MLX)
+	$(CC) $(FLAGS) $(SRCS) -Iincludes $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
+$(LIBFT):
+	@make bonus -C ./libft/
+	
+$(MLX):
+	@make -C ./minilibx/
 
 clean:
-		${RM} ${OBJS}
+	@rm -rf $(OBJS)
+	@echo "cleaning .o files"
 
 fclean: clean
-		${RM} ${NAME}
+	@rm -rf $(NAME)
 
-all:	${NAME} ${OBJS}
+lclean:
+	@make fclean -C ./libft/
+	@make clean -C ./minilibx/
 
-re:		fclean all
+re: fclean all
 
 .PHONY: all clean fclean re bonus
