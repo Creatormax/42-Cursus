@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:35 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/17 17:41:44 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/21 11:03:41 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "minilibx/mlx.h"
+# include <mlx.h>
 # include "libft/libft.h"
 
 int		main(int argc, char **argv);

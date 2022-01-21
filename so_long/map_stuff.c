@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:27:07 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/17 15:33:03 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/21 11:12:01 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,12 @@ char	**map_arranger(int map)
 	int		j;
 
 	j = 0;
+	aux = get_next_line(map);
 	i = dimensions_x(aux);
 	if (i < 3)
 		error_msgr("The map is smaller than a 3x3");
-	aux = get_next_line(map);
 	if (aux[0] != 1)
+		error_msgr("The map is not surrounded by walls");
 	matrix = ft_calloc(1, sizeof(char *) * i);
 	matrix[j++] = aux;
 	while (aux)
