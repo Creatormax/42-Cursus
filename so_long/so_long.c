@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:38 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/17 16:48:12 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/21 16:59:42 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	main(int argc, char **argv)
 {
+	char	**matrix;
+	int		j;
+
+	j = 0;
 	if (argc < 2)
 		return (0);
-	map_render(open(argv[1], O_RDONLY));
+	matrix = map_render(open(argv[1], O_RDONLY));
+	return (0);
 }

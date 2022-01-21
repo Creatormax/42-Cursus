@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_render.c                                       :+:      :+:    :+:   */
+/*   matrix_stuff.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 14:35:05 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/21 17:55:01 by hmorales         ###   ########.fr       */
+/*   Created: 2022/01/21 16:21:19 by hmorales          #+#    #+#             */
+/*   Updated: 2022/01/21 17:17:02 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	dimensions_y(char **matrix)
+char	*gnl_no_lb(int map)
 {
-	int	j;
+	char	*aux;
+	char	*aux2;
 
-	j = 0;
-	while (matrix[j])
-		j++;
-	return (j);
+	aux = get_next_line(map);
+	if (!aux)
+		return (NULL);
+	aux2 = ft_strtrim(aux, "\n");
+	return (aux2);
 }
 
-char	**map_render(int map)
+void	matrix_printer(int j, char **matrix)
 {
-	char	**matrix;
-	void	*mlx;
-	void	*mlx_win;
+	int	y;
 
-	mlx = mlx_init();
-	matrix = map_arranger(map);
-	mlx_win = mlx_new_window(mlx, dimensions_x(matrix[0], 0) * 50 \
-	, dimensions_y(matrix) * 50, "so_long");
-	mlx_loop(mlx);
-	return (matrix);
+	y = 0;
+	printf("%d\n", dimensions_y(matrix));
+	while (y <= j)
+	{
+		printf("%d ", dimensions_x(matrix[y], 0));
+		printf("%s\n", matrix[y++]);
+	}
 }
