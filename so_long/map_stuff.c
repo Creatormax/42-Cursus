@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:27:07 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/21 17:49:39 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:37:38 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,6 @@ void	error_msgr(char *str)
 	write(1, "Error\n", 6);
 	write(1, str, dimensions_x(str, 0));
 	exit (1);
-}
-
-void	map_checker(char **matrix, int i, int j)
-{
-	int	k;
-
-	k = 0;
-	while (k < i)
-	{
-		if (matrix[0][k] != '1' || matrix[j - 1][k] != '1')
-			error_msgr("This map has some holes in the walls");
-		k++;
-	}
-	k = 0;
-	while (k < j)
-	{
-		if (matrix[k][0] != '1' || matrix[k][i - 1] != '1')
-			error_msgr("This map has some holes in the walls");
-		k++;
-	}
 }
 
 void	map_checker2(char **matrix, int i, int j)
@@ -79,6 +59,27 @@ void	map_checker2(char **matrix, int i, int j)
 		error_msgr("There is no starting point");
 }
 
+void	map_checker(char **matrix, int i, int j)
+{
+	int	k;
+
+	k = 0;
+	while (k < i)
+	{
+		if (matrix[0][k] != '1' || matrix[j - 1][k] != '1')
+			error_msgr("This map has some holes in the walls");
+		k++;
+	}
+	k = 0;
+	while (k < j)
+	{
+		if (matrix[k][0] != '1' || matrix[k][i - 1] != '1')
+			error_msgr("This map has some holes in the walls");
+		k++;
+	}
+	map_checker2(matrix, i, j - 1);
+}
+
 char	**map_arranger(int map)
 {
 	char	**matrix;
@@ -100,10 +101,10 @@ char	**map_arranger(int map)
 		aux = gnl_no_lb(map);
 		if (dimensions_x(aux, i) != i)
 			error_msgr("This map is not a rectangle");
-		matrix = (char **) ft_realloc(matrix, sizeof(char *) * i * j);
+		matrix = (char **) ft_realloc(matrix, sizeof(char *) * (i - 1) * j, \
+		sizeof(char *) * i * j);
 		matrix[j++] = aux;
 	}
 	map_checker(matrix, i, j - 1);
-	map_checker2(matrix, i, j - 1);
 	return (matrix);
 }

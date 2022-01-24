@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:35 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/21 17:15:55 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:42:54 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@
 # include <fcntl.h>
 # include "mlx/mlx.h"
 # include "libft/libft.h"
+
+typedef struct img
+{
+	void	*grass;
+	void	*kirby;
+	void	*tree;
+	void	*metatomato;
+	void	*exit;
+}	t_img;
+
+typedef struct win
+{
+	void	*mlx;
+	void	*mlx_win;
+	int		x;
+	int		y;
+}	t_win;
 
 int		main(int argc, char **argv);
 char	**map_arranger(int map);
