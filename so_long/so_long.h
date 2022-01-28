@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:35 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/24 17:42:54 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/28 18:02:32 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 # include "mlx/mlx.h"
 # include "libft/libft.h"
 
-typedef struct img
-{
-	void	*grass;
-	void	*kirby;
-	void	*tree;
-	void	*metatomato;
-	void	*exit;
-}	t_img;
+//typedef struct img
+//{
+//	void	*grass;
+//	void	*kirby;
+//	void	*tree;
+//	void	*metatomato;
+//	void	*exit;
+//}	t_img;
 
 typedef struct win
 {
@@ -35,6 +35,14 @@ typedef struct win
 	void	*mlx_win;
 	int		x;
 	int		y;
+	int		player_x;
+	int		player_y;
+	void	*grass;
+	void	*kirby;
+	void	*tree;
+	void	*metatomato;
+	void	*exit;
+	char	**matrix;
 }	t_win;
 
 int		main(int argc, char **argv);
@@ -44,5 +52,12 @@ int		dimensions_x(char *aux, int j);
 int		dimensions_y(char **matrix);
 char	*gnl_no_lb(int map);
 void	matrix_printer(int j, char **matrix);
+void	up(t_win **win);
+void	down(t_win **win);
+void	left(t_win **win);
+void	right(t_win **win);
+int		key_hook(int keycode, void *win);
+int		terminator(int keycode, void *win);
+int		collider(t_win **win, int ny, int nx);
 
 #endif

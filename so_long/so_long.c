@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:38 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/24 19:46:27 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/01/28 13:14:46 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	matrix = map_render(open(argv[1], O_RDONLY));
-	character(matrix);
 	return (0);
 }

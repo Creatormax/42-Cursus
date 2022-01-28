@@ -6,7 +6,7 @@
 #    By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/15 16:09:33 by hmorales          #+#    #+#              #
-#    Updated: 2022/01/24 14:34:52 by hmorales         ###   ########.fr        #
+#    Updated: 2022/01/28 16:47:28 by hmorales         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRCS	=	so_long.c \
 			map_render.c \
 			map_stuff.c \
 			matrix_stuff.c \
+			character.c \
+			movements.c \
 
 FLAGS	=	-Wall -Wextra -Werror -fsanitize=address -g3
 
