@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:35 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/28 18:02:32 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:10:04 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct win
 	int		y;
 	int		player_x;
 	int		player_y;
+	int		coins;
+	int		t_coins;
 	void	*grass;
 	void	*kirby;
 	void	*tree;
@@ -58,6 +60,7 @@ void	left(t_win **win);
 void	right(t_win **win);
 int		key_hook(int keycode, void *win);
 int		terminator(int keycode, void *win);
-int		collider(t_win **win, int ny, int nx);
+int		collider(t_win ***win, int ny, int nx);
+void	coin_counter(t_win *win);
 
 #endif

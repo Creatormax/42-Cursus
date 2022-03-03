@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 19:41:18 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/28 18:04:17 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:00:59 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,48 @@ int	terminator(int keycode, void *win)
 	exit (0);
 }
 
-int	collider(t_win **win, int ny, int nx)
+void	coin_counter(t_win *win)
 {
-	if ((*win)->matrix[ny][nx] == '1')
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	win->coins = 0;
+	win->t_coins = 0;
+	while (dimensions_y(win->matrix) > j)
+	{
+		while (dimensions_x(win->matrix[j], j) > i)
+		{
+			if (win->matrix[j][i] == 'C')
+				win->t_coins++;
+			i++;
+		}
+		i = 0;
+		j++;
+	}
+	ft_putnbr_fd(win->t_coins, 1);
+}
+
+int	collider(t_win ***win, int nx, int ny)
+{
+	if ((**win)->matrix[ny][nx] == '1')
 		return (0);
+	else if ((**win)->matrix[ny][nx] == 'C')
+	{
+		(**win)->matrix[ny][nx] = '0';
+		(**win)->coins++;
+	}
+	else if ((**win)->matrix[ny][nx] == 'E' && (**win)->t_coins > \
+	(**win)->coins)
+		return (0);
+	else if ((**win)->matrix[ny][nx] == 'E' && (**win)->t_coins <= \
+	(**win)->coins)
+	{
+		write(1, "YOU WIN", 7);
+		write(1, "\n", 1);
+		terminator(0, *win);
+	}
 	return (1);
 }
 

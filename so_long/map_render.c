@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:35:05 by hmorales          #+#    #+#             */
-/*   Updated: 2022/01/28 17:41:23 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:42:47 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ char	**map_render(int map)
 	t_win	win;
 
 	win.matrix = map_arranger(map);
+	coin_counter(&win);
 	win.mlx = mlx_init();
 	win.mlx_win = mlx_new_window(win.mlx, dimensions_x(win.matrix[0], 0) * 32 \
 	, dimensions_y(win.matrix) * 32, "so_long");
