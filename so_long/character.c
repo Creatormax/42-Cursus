@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 19:41:18 by hmorales          #+#    #+#             */
-/*   Updated: 2022/03/03 17:00:59 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:49:14 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	terminator(int keycode, void *win)
 {
-	(void)keycode;
 	(void)win;
+	(void)keycode;
 	exit (0);
 }
 
@@ -72,6 +72,7 @@ int	key_hook(int keycode, void *win)
 	if (keycode == 53)
 	{
 		mlx_destroy_window(lol->mlx, lol->mlx_win);
+		destroy(&lol);
 		exit (0);
 	}
 	if (keycode == 13 || keycode == 126)
@@ -83,4 +84,14 @@ int	key_hook(int keycode, void *win)
 	if (keycode == 2 || keycode == 124)
 		right(&lol);
 	return (0);
+}
+
+void	destroy(t_win **win)
+{
+	int	j;
+
+	j = 0;
+	while ((*win)->matrix[j])
+		free((*win)->matrix[j++]);
+	free((*win)->matrix);
 }

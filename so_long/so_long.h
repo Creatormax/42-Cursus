@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:35 by hmorales          #+#    #+#             */
-/*   Updated: 2022/03/03 17:10:04 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:54:33 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,6 @@
 # include <fcntl.h>
 # include "mlx/mlx.h"
 # include "libft/libft.h"
-
-//typedef struct img
-//{
-//	void	*grass;
-//	void	*kirby;
-//	void	*tree;
-//	void	*metatomato;
-//	void	*exit;
-//}	t_img;
 
 typedef struct win
 {
@@ -49,7 +40,7 @@ typedef struct win
 
 int		main(int argc, char **argv);
 char	**map_arranger(int map);
-char	**map_render(int map);
+void	map_render(int map);
 int		dimensions_x(char *aux, int j);
 int		dimensions_y(char **matrix);
 char	*gnl_no_lb(int map);
@@ -62,5 +53,6 @@ int		key_hook(int keycode, void *win);
 int		terminator(int keycode, void *win);
 int		collider(t_win ***win, int ny, int nx);
 void	coin_counter(t_win *win);
+void	destroy(t_win **win);
 
 #endif

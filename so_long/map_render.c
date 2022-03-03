@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:35:05 by hmorales          #+#    #+#             */
-/*   Updated: 2022/03/03 16:42:47 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:54:20 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	img_loader(t_win *win)
 	painter(&win);
 }
 
-char	**map_render(int map)
+void	map_render(int map)
 {
 	t_win	win;
 
@@ -101,5 +101,4 @@ char	**map_render(int map)
 	mlx_hook(win.mlx_win, 17, 0L, terminator, &win);
 	mlx_hook(win.mlx_win, 2, 1L << 0, key_hook, &win);
 	mlx_loop(win.mlx);
-	return (win.matrix);
 }

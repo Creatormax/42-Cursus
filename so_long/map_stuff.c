@@ -6,7 +6,7 @@
 /*   By: hmorales <hmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:27:07 by hmorales          #+#    #+#             */
-/*   Updated: 2022/03/03 15:10:22 by hmorales         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:18:09 by hmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ void	map_checker2(char **matrix, int i, int j)
 	int	positions[2];
 	int	err[3];
 
-	ft_bzero(positions, 2);
+	positions[0] = -1;
+	positions[1] = -1;
 	ft_bzero(err, 3);
-	while (positions[0]++ < j - 1)
+	while (++positions[0] < j - 1)
 	{
-		while (positions[1]++ < i - 1)
+		while (++positions[1] < i - 1)
 		{
 			if (matrix[positions[0]][positions[1]] == 'E')
 				err[0] = 1;
@@ -77,6 +78,7 @@ void	map_checker(char **matrix, int i, int j)
 			error_msgr("This map has some holes in the walls");
 		k++;
 	}
+	matrix_printer(j, matrix);
 	map_checker2(matrix, i, j - 1);
 }
 
@@ -101,7 +103,7 @@ char	**map_arranger(int map)
 		aux = gnl_no_lb(map);
 		if (dimensions_x(aux, i) != i)
 			error_msgr("This map is not a rectangle");
-		matrix = (char **) ft_realloc(matrix, sizeof(char *) * (i - 1) * j, \
+		matrix = (char **) ft_realloc(matrix, sizeof(char *) * i * j + 1, \
 		sizeof(char *) * i * j);
 		matrix[j++] = aux;
 	}
